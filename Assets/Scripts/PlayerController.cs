@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     [Header("Movement")]
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float sprintMultiplier = 2f;
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         _playerInputControls = new PlayerInputControls();
         _characterController = GetComponent<CharacterController>();
         _camera = Camera.main;
@@ -164,5 +168,9 @@ public class PlayerController : MonoBehaviour
         footstepSource.clip = footstepSounds[randomIndex];
         footstepSource.Play();
     }
+    public Vector2 GetMovementInput() => inputMovement;
+    public Vector2 GetLookInput() => inputLook;
+    public bool GetIsGrounded() => _characterController.isGrounded;
+
 
 }
