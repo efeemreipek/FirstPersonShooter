@@ -20,7 +20,6 @@ public class WeaponClipPrevention : MonoBehaviour
 
     private void Update()
     {
-
         if(Physics.Raycast(clipProjector.transform.position, clipProjector.transform.forward, out hit, checkDistance, layer))
         {
             // Get a percentage from 0 to max distance
