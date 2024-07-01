@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Look Sensitivity")]
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] private float upDownRange = 80f;
+    [SerializeField] private Transform _cameraHolderTransform;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 5f;
@@ -119,7 +120,8 @@ public class PlayerController : MonoBehaviour
         verticalRotation -= mouseYRotation;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
 
-        _camera.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        //_camera.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        _cameraHolderTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
 
     }
     private void HandleGravityAndJump()
