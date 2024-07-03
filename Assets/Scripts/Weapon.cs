@@ -83,9 +83,10 @@ public class Weapon : MonoBehaviour
                 Debug.Log("Shot " + hit.collider.name);
                 Debug.DrawRay(_camera.transform.position, _camera.transform.forward * maxDistance, Color.red, 2f);
                 currentAmmo--;
-                CameraShake.Instance.Shake(shakeDuration, shakeAmount);
+                //CameraShake.Instance.Shake(shakeDuration, shakeAmount);
                 var muzzleFlash = Instantiate(GameAssets.Instance.muzzleFlashPrefab, firePointTransform.position, firePointTransform.rotation, firePointTransform);
                 Destroy(muzzleFlash.gameObject, 0.1f);
+
 
                 timeSinceLastShot = 0f;
             }
@@ -95,7 +96,7 @@ public class Weapon : MonoBehaviour
                 Debug.Log("Shot nothing");
                 Debug.DrawRay(_camera.transform.position, _camera.transform.forward * maxDistance, Color.red, 2f);
                 currentAmmo--;
-                CameraShake.Instance.Shake(shakeDuration, shakeAmount);
+                //CameraShake.Instance.Shake(shakeDuration, shakeAmount);
                 var muzzleFlash = Instantiate(GameAssets.Instance.muzzleFlashPrefab, firePointTransform.position, firePointTransform.rotation, firePointTransform);
                 Destroy(muzzleFlash.gameObject, 0.1f);
 
