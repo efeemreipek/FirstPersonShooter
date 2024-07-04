@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour, IInteractable
+public class AmmoPickup : MonoBehaviour, IInteractable
 {
-    public static event Action<ItemData> OnHealthPickupCollected;
+    public static event Action<ItemData> OnAmmoPickupCollected;
 
     public ItemData ItemData;
 
     public void Interact()
     {
         Destroy(gameObject);
-        OnHealthPickupCollected?.Invoke(ItemData);
+        OnAmmoPickupCollected?.Invoke(ItemData);
     }
 }
